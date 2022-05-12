@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\recipes",
+    "\\src\\app\\recipes\\recipes-list",
+    "\\src\\app\\recipes\\recipes-list\\recipe-item",
+    "\\src\\app\\shoping-list"
+  ],
+  "SelectedNode": "\\src\\app\\recipes\\recipe.model.ts",
+  "PreviewInSolutionExplorer": false
+}
