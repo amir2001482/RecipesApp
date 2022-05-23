@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 
 export class shoppingListService
 {
+  startedEditingItem = new Subject<number>();
   constructor()
   {
 

@@ -12,17 +12,20 @@ export class ShopingListComponent implements OnInit
   Ingredients: Ingredient[] = [];
   constructor(private slService: shoppingListService)
   {
-    
+
   }
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
     this.Ingredients = this.slService.getIngredient();
     this.slService.changedIngredient.subscribe((ingredients: Ingredient[]) => {
       this.Ingredients = ingredients;
-    }) 
-      
-    }
+    })
   }
+  onEditItem(index : number){
+    this.slService.startedEditingItem.next(index);
+
+  }
+}
+
 
 
 
