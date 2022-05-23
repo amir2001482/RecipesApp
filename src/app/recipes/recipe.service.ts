@@ -22,17 +22,20 @@ export class recipeService
         new Ingredient('Meat', 1)
       ])
   ];
-  constructor(private slService: shoppingListService)
-  {
+  constructor(private slService: shoppingListService){
 
   }
-  onGetRecipe()
-  {
+  onGetRecipe(){
+
     return this.recipes.slice();
   }
-  AddIngredientdtoShoppingList(ingredients: Ingredient[])
-  {
+  AddIngredientdtoShoppingList(ingredients: Ingredient[]){
+
     this.slService.AddIngredientsFromRecipe(ingredients);
+  }
+  getRecipeById(index : number){
+
+    return this.recipes[index];
   }
 
 }
