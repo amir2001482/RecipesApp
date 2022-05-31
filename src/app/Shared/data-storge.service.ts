@@ -22,7 +22,7 @@ export class dataStorgeService {
            .pipe(
                map( recipes => {
                   return recipes.map( recipe => {
-                  return {...recipe , ingredient : recipe.ingredient ? recipe.ingredient : []};
+                  return {...recipe , ingredient : recipe.ingredients ? recipe.ingredients : []};
                                                                                             });
                  }),
                tap(recipes => {

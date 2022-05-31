@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Ingredient } from '../Ingredient';
+import { Ingredient } from '../../Shared/Ingredient';
 import { shoppingListService } from '../shopping-list.service';
 @Component({
   selector: 'app-shoping-edit',
@@ -41,8 +41,8 @@ export class ShopingEditComponent implements OnInit , OnDestroy {
          this.editingItemIndex = index;
          this.editedItem = this.slService.getIngredientByIndex(index);
          this.slForm?.setValue({
-           name : this.editedItem.Name,
-           amount : this.editedItem.Amount
+           name : this.editedItem.name,
+           amount : this.editedItem.amount
          })
 
        }

@@ -9,8 +9,8 @@ import { recipeService } from '../recipe.service';
   styleUrls: ['./recipes-detail.component.css']
 })
 export class RecipesDetailComponent implements OnInit {
-        recipe : Recipe =  new Recipe("a" , "a" , "a" , []);
-        id : number = 0;
+        recipe? : Recipe ;
+        id? : number ;
 
 
         constructor(private recipeService: recipeService , private activeRoute : ActivatedRoute , private router : Router){
@@ -31,8 +31,8 @@ export class RecipesDetailComponent implements OnInit {
 
         onAddToShoppingList(){
 
-
-            this.recipeService.AddIngredientdtoShoppingList(this.recipe.ingredient);
+            if(this.recipe)
+            this.recipeService.AddIngredientdtoShoppingList(this.recipe.ingredients);
         }
 
 
@@ -44,6 +44,7 @@ export class RecipesDetailComponent implements OnInit {
 
         onDeleteRecipe(){
 
+          if(this.id)
           this.recipeService.deleteRecipe(this.id);
           this.router.navigate(["/recipes"] , {relativeTo: this.activeRoute})
 

@@ -2,9 +2,9 @@ export class Ingredient
 {
   constructor(name: string, amount: number)
   {
-    this.Name = name ;
-    this.Amount = amount;
+    this.name = name ;
+    this.amount = amount;
   }
-  public Name: string;
-  public Amount: number;
+  public name: string;
+  public amount: number;
 }
