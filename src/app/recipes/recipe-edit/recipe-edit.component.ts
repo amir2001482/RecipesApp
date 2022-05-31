@@ -30,28 +30,29 @@ export class RecipeEditComponent implements OnInit {
       }
     )
   }
-   private initForm(){
-     let name = "";
-     let imagePath = "";
-     let description  = "";
-     let recipeIngredients = new FormArray([]);
-     if(this.editmode){
 
-      this.recipe =  this.recipeService.getRecipeById(this.id);
-      name = this.recipe.name;
-      imagePath = this.recipe.imagePath;
-      description = this.recipe.description;
-      if(this.recipe["ingredient"]){
+    private initForm(){
+      let name = "";
+      let imagePath = "";
+      let description  = "";
+      let recipeIngredients = new FormArray([]);
+      if(this.editmode){
 
-        for(let ingredient of this.recipe.ingredient){
-          recipeIngredients.push(
-            new FormGroup({
-              "name" : new FormControl(ingredient.Name , Validators.required),
-              "amount" : new FormControl(ingredient.Amount , [Validators.required , Validators.pattern(/^[0-9]+[1-9]*$/)])
-            })
-          )
+        this.recipe =  this.recipeService.getRecipeById(this.id);
+        name = this.recipe.name;
+        imagePath = this.recipe.imagePath;
+        description = this.recipe.description;
+        if(this.recipe["ingredient"]){
+
+          for(let ingredient of this.recipe.ingredient){
+            recipeIngredients.push(
+              new FormGroup({
+                "name" : new FormControl(ingredient.Name , Validators.required),
+                "amount" : new FormControl(ingredient.Amount , [Validators.required , Validators.pattern(/^[1-9]+[0-9]*$/)])
+              })
+            );
+          }
         }
-      }
      }
 
     this.recipeForm = new FormGroup({
@@ -80,10 +81,12 @@ export class RecipeEditComponent implements OnInit {
    }
 
 
-   get controls(){
+    get controls(){
 
-    return (<FormArray>this.recipeForm.get("ingredients")).controls
+        return (<FormArray>this.recipeForm.get("ingredients")).controls
    }
+
+
     onAddIngredient(){
       (<FormArray>this.recipeForm.get("ingredients")).push(
         new FormGroup({
