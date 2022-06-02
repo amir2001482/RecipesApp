@@ -18,6 +18,9 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { recipeService } from './recipes/recipe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { dataStorgeService } from './Shared/data-storge.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { loadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { dataStorgeService } from './Shared/data-storge.service';
      ShopingListComponent,
      ShopingEditComponent,
      RecipeStartComponent,
-     RecipeEditComponent
+     RecipeEditComponent ,
+     AuthComponent,
+     loadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { dataStorgeService } from './Shared/data-storge.service';
     CommonModule
 
   ],
-  providers: [shoppingListService , recipeService , dataStorgeService],
+  providers: [shoppingListService , recipeService , dataStorgeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
