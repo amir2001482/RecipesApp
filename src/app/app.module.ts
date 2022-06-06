@@ -16,11 +16,12 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { CommonModule } from '@angular/common';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { recipeService } from './recipes/recipe.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { dataStorgeService } from './Shared/data-storge.service';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { loadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
+import { AuthInterciptor } from './auth/auth-intercipter.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { loadingSpinnerComponent } from './Shared/loading-spinner/loading-spinne
     CommonModule
 
   ],
-  providers: [shoppingListService , recipeService , dataStorgeService ],
+  providers: [shoppingListService , recipeService , dataStorgeService , {provide : HTTP_INTERCEPTORS , useClass : AuthInterciptor , multi : true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

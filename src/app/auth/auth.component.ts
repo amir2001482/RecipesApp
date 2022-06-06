@@ -2,6 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Component } from "@angular/core";
 import { AuthService, AuthResponseData } from './auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector : "app-auth" ,
@@ -12,7 +13,7 @@ export class AuthComponent{
     isLoginMode = true;
     isLoading = false;
     erorr  : string = "";
-    constructor(private authService : AuthService){}
+    constructor(private authService : AuthService , private router : Router){}
 
 
     onSwichMode(){
@@ -37,11 +38,13 @@ export class AuthComponent{
 
         authObs =  this.authService.singUp(email , password)
       }
-      
+
       authObs.subscribe(resData => {
-        console.log(resData);
         this.isLoading = false;
-      } , erorrMassege => {
+        this.router.navigate(["/recipes"]);
+
+      } ,
+        erorrMassege => {
         this.erorr = erorrMassege;
         console.log(erorrMassege);
         this.isLoading = false;

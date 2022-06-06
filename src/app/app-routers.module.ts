@@ -7,9 +7,10 @@ import { RecipesComponent } from "./recipes/recipes.component";
 import { ShopingListComponent } from "./shoping-list/shoping-list.component";
 import {  recipeResloverService } from './recipes/recipes-reslover';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGurdService } from './auth/auth-gurd';
 const appRoutes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch:"full" },
-  { path: "recipes", component: RecipesComponent , children : [
+  { path: "recipes", component: RecipesComponent , canActivate : [AuthGurdService] , children : [
     {path: "" ,component: RecipeStartComponent},
     {path :"new" , component:RecipeEditComponent},
     {path:":id" , component:RecipesDetailComponent , resolve : [recipeResloverService]},
