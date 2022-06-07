@@ -22,22 +22,23 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { loadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
 import { AuthInterciptor } from './auth/auth-intercipter.service';
+import { AlertComponent } from './Shared/alert.component';
+import { PlaceHolderDirective } from './Shared/PlaceHolder.directive';
 
 @NgModule({
   declarations: [
      AppComponent,
      HeaderComponent,
-     RecipesComponent,
-     RecipeListComponent,
-     RecipesDetailComponent,
-     RecipeItemComponent,
+
      dropDownDirective,
      ShopingListComponent,
      ShopingEditComponent,
      RecipeStartComponent,
      RecipeEditComponent ,
      AuthComponent,
-     loadingSpinnerComponent
+     loadingSpinnerComponent,
+     AlertComponent,
+     PlaceHolderDirective
   ],
   imports: [
     BrowserModule,
@@ -49,6 +50,7 @@ import { AuthInterciptor } from './auth/auth-intercipter.service';
 
   ],
   providers: [shoppingListService , recipeService , dataStorgeService , {provide : HTTP_INTERCEPTORS , useClass : AuthInterciptor , multi : true} ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents : [AlertComponent]
 })
 export class AppModule { }
