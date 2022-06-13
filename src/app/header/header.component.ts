@@ -1,4 +1,4 @@
-import { UserModel } from './../auth/user.model';
+import { User } from './../auth/user.model';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { dataStorgeService } from '../Shared/data-storge.service';

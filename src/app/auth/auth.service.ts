@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { throwError,tap, BehaviorSubject } from 'rxjs';
-import { UserModel } from './user.model';
+import { User } from './user.model';
 import { Router } from '@angular/router';
 
 
@@ -18,7 +18,7 @@ export interface AuthResponseData {
 @Injectable({providedIn : "root"})
 export class AuthService{
 
-    userInfo = new BehaviorSubject<UserModel | null>(null);
+    userInfo = new BehaviorSubject<User | null>(null);
     private ExpireTimeOut : any;
 
     constructor(private http : HttpClient , private router : Router){}
@@ -73,7 +73,7 @@ export class AuthService{
       if(!user){
         return
       }
-      const loadedUser = new UserModel(user.email , user.id , user._token , new Date(user._expireDate));
+      const loadedUser = new User(user.email , user.id , user._token , new Date(user._expireDate));
       if(loadedUser.token){
         this.userInfo.next(loadedUser);
         const ExpireTokenDate = new Date(user._expireDate).getTime() - new Date().getTime();
@@ -108,7 +108,7 @@ export class AuthService{
     private handelAuthentication(email : string , userId : string , token : string , tokenExpire : number){
 
       let tokenExpireDate = new Date(new Date().getTime() + +tokenExpire * 1000);
-      const user = new UserModel(email , userId , token , tokenExpireDate);
+      const user = new User(email , userId , token , tokenExpireDate);
       this.userInfo.next(user);
       this.autoLogOut(tokenExpire * 1000)
       localStorage.setItem("userData" , JSON.stringify(user))

@@ -1,8 +1,7 @@
-import { RouterModule } from '@angular/router';
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { appRouters } from "../app-routers.module";
+import { RouterModule } from '@angular/router';
+import { FormsModule } from "@angular/forms";
+
 import { ShopingEditComponent } from "./shoping-edit/shoping-edit.component";
 import { ShopingListComponent } from "./shoping-list.component";
 import { SharedModule } from '../Shared/shared.module';
@@ -15,12 +14,11 @@ import { SharedModule } from '../Shared/shared.module';
   ] ,
 
   imports : [
-    appRouters ,
+
     FormsModule ,
-    ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild([
-      { path: "shopping-list", component: ShopingListComponent },
+      { path: "" , component: ShopingListComponent },
     ])
   ]
 })

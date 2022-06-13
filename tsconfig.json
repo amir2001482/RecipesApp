@@ -2,6 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
+    },
+    "module": "esnext" ,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -17,7 +21,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
-    "module": "es2020",
+    // "module": "es2020",
     "lib": [
       "es2020",
       "dom"
@@ -31,13 +35,5 @@
     "strictPropertyInitialization": false
   },
 
-  "compilerOptions": {
-    //...rest parameters
-
-    "baseUrl": "./",
-    "paths": {
-      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
-    }
-  }
 
 }

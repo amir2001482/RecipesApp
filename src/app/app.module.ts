@@ -1,28 +1,31 @@
-import {BrowserModule} from '@angular/platform-browser'
+import { BrowserModule} from '@angular/platform-browser'
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { appRouters } from './app-routers.module';
-import { HttpClientModule} from '@angular/common/http';
-import { RecipeModule } from './recipes/recipe.module';
 import { SharedModule } from './Shared/shared.module';
 import { CoreModule } from './core.module';
-import { AuthModule } from './auth/auth.module';
+// import { AuthModule } from './auth/auth.module';
+// import { RecipeModule } from './recipes/recipe.module';
+// import { ShoppingListModule } from './shoping-list/shopping-list.module';
+
 
 @NgModule({
   declarations: [
      AppComponent,
      HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    appRouters,
-    HttpClientModule,
-    RecipeModule ,
-    SharedModule ,
-    CoreModule ,
-    AuthModule
+  imports : [
+     BrowserModule ,
+    //  AuthModule,
+    //  ShoppingListModule,
+    //  RecipeModule,
+     appRouters,
+     HttpClientModule,
+     SharedModule ,
+     CoreModule,
 
   ],
   bootstrap: [AppComponent],

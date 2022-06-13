@@ -10,7 +10,7 @@ import { recipeService } from '../recipe.service';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit , OnDestroy {
+export class RecipesListComponent implements OnInit , OnDestroy {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [];
   subscription = new Subscription
@@ -33,10 +33,10 @@ export class RecipeListComponent implements OnInit , OnDestroy {
 
     this.router.navigate(["new"] , {relativeTo : this.route });
   }
-    ngOnDestroy(): void {
+  ngOnDestroy(): void {
 
       this.subscription.unsubscribe();
-    }
-
   }
+
+}
 

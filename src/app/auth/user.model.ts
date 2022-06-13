@@ -1,19 +1,15 @@
-
-export class UserModel{
-
+export class User {
   constructor(
-       public email : string ,
-       public userId : string ,
-       private _token : string | number | boolean ,
-       private _expireDate : Date){}
+    public email: string,
+    public id: string,
+    private _token: string,
+    private _tokenExpirationDate: Date
+  ) {}
 
-  get token(){
-    if(this._expireDate != null)
-    if(! this._token || new Date() > this._expireDate){
+  get token() {
+    if (!this._tokenExpirationDate || new Date() > this._tokenExpirationDate) {
       return null;
     }
     return this._token;
   }
-
-
 }

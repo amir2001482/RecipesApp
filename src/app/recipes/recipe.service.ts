@@ -4,7 +4,8 @@ import { shoppingListService } from "../shoping-list/shopping-list.service";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { dataStorgeService } from "../Shared/data-storge.service";
-@Injectable()
+
+@Injectable({providedIn:"root"})
 export class recipeService
 {
           changedRecipes = new Subject<Recipe[]>();
